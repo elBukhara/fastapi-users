@@ -1,7 +1,7 @@
 from typing import TYPE_CHECKING
 
 from fastapi_users.db import SQLAlchemyUserDatabase
-from fastapi_users_db_sqlalchemy.access_token import SQLAlchemyBaseAccessTokenTable
+from fastapi_users_db_sqlalchemy.access_token import SQLAlchemyBaseAccessTokenTable, SQLAlchemyAccessTokenDatabase
 
 from sqlalchemy import Integer, ForeignKey
 from sqlalchemy.ext.asyncio import AsyncSession
@@ -23,4 +23,4 @@ class AccessToken(Base, SQLAlchemyBaseAccessTokenTable[UserIdType]):
     
     @classmethod
     def get_db(cls, session: "AsyncSession"):
-        return SQLAlchemyUserDatabase(session, cls)
+        return SQLAlchemyAccessTokenDatabase(session, cls)
