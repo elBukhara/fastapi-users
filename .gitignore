@@ -2,5 +2,6 @@
 .idea
 .vs
 
+src
 __pycache__
 db.sqlite3
