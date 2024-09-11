@@ -15,7 +15,10 @@ router = APIRouter(
 
 # /login - /logout
 router.include_router(
-    router=fastapi_users.get_auth_router(authentication_backend),
+    router=fastapi_users.get_auth_router(
+        authentication_backend,
+        requires_verification=True, # Change it when being on production
+    ),
 )
 
 # /register
